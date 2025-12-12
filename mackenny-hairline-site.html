@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mackenny Hairline</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+  body {background:#fff;color:#000;scroll-behavior:smooth;}
+  a {text-decoration:none;color:inherit;}
+  button {cursor:pointer;border:none;outline:none;}
+  .fade-in {opacity:0;transform:translateY(20px);transition:0.8s;}
+  .fade-in.show {opacity:1;transform:translateY(0);}
+
+  /* Header / Logo */
+  .logo-container {padding:20px;text-align:center;background:#F5F5F5;}
+  .logo-container img {height:70px;}
+
+  /* Hero Section */
+  .hero {height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg, #9B51E0, #BB6BD9);color:#fff;text-align:center;padding:0 20px;position:relative;overflow:hidden;}
+  .hero::after {content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0));animation: shimmer 4s infinite linear;}
+  @keyframes shimmer {0%{background-position:-100% 0;}100%{background-position:100% 0;}}
+  .hero h1 {font-size:2.8rem;margin-bottom:20px;z-index:1;position:relative;}
+  .hero p {font-size:1.2rem;margin-bottom:30px;z-index:1;position:relative;}
+  .hero .cta-btn {background: linear-gradient(135deg, #FF3CAC, #FF2D95);color:#fff;padding:15px 35px;font-size:1rem;border-radius:30px;transition:0.4s;z-index:1;position:relative;}
+  .hero .cta-btn:hover {transform: scale(1.05); box-shadow: 0 0 15px rgba(255,60,172,0.6);}
+
+  /* Services + Gallery */
+  .services-gallery {display:flex;flex-wrap:wrap;padding:50px 20px;justify-content:center;gap:50px;background:#F5F5F5;}
+  .services {flex:1;min-width:250px;}
+  .services h2 {font-size:2rem;margin-bottom:20px;background: linear-gradient(90deg,#FF3CAC,#FF2D95);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+  .services ul {list-style:none;}
+  .services ul li {font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;transition:0.3s;}
+  .services ul li span {color:#FF3CAC;}
+  .services ul li:hover{transform:scale(1.05);}
+  .gallery {flex:1;min-width:250px;position:relative;border-radius:15px;overflow:hidden;max-width:400px;}
+  .gallery img {width:100%;height:400px;object-fit:cover;border-radius:15px;display:none;transition: transform 0.3s ease;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+  .gallery img.active {display:block;}
+  .gallery img:hover {transform: scale(1.05);}
+  .gallery-controls {margin-top:10px;text-align:center;}
+  .gallery-controls button {padding:8px 12px;margin:0 5px;background:#FF3CAC;color:#fff;border-radius:8px;transition:0.3s;}
+  .gallery-controls button:hover {background:#FF2D95;}
+
+  /* Contact Section */
+  .contact {display:flex;justify-content:space-between;align-items:center;padding:50px 20px;background:#fff;flex-wrap:wrap;}
+  .contact .phone {font-size:1.5rem; color:#FF3CAC; margin-bottom:10px;}
+  .contact .icons a {
+    margin-left:15px;display:inline-flex;justify-content:center;align-items:center;
+    width:60px;height:60px;border-radius:50%;transition:0.3s;
+  }
+  .contact .icons a svg {width:60px;height:60px;}
+  .contact .icons a:hover {transform:scale(1.2);}
+
+  /* Footer */
+  footer {text-align:center;padding:20px;background:#F5F5F5;color:#000;font-size:0.9rem;}
+
+  /* Sticky WhatsApp Button */
+  .whatsapp-float {
+    position:fixed;bottom:25px;right:25px;
+    width:70px;height:70px;border-radius:50%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000;transition:0.3s;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .whatsapp-float svg {width:70px;height:70px;}
+  .whatsapp-float:hover {transform:scale(1.2);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+
+  /* Responsive */
+  @media(max-width:768px){.services-gallery{flex-direction:column;align-items:center;}.contact{flex-direction:column;gap:20px;}}
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<div class="logo-container fade-in">
+  <img src="logo.png" alt="Mackenny Hairline Logo">
+</div>
+
+<!-- Hero Section -->
+<section class="hero fade-in">
+  <h1>Babes, clock it—time to slay that baddie glow ✨</h1>
+  <p>Glow up, flex, and shine like the queen you are!</p>
+  <a href="https://wa.me/09166516147" target="_blank" class="cta-btn">Slide into WhatsApp</a>
+</section>
+
+<!-- Services + Gallery -->
+<section class="services-gallery fade-in">
+  <div class="services">
+    <h2>Glow Up Menu 💇‍♀️</h2>
+    <ul>
+      <li><span>✂️</span> Frontal Installation <span style="color:#FFD700;">🔥 Most Baddie</span></li>
+      <li><span>💁‍♀️</span> Wig Revamping & Styling</li>
+      <li><span>🖤</span> Wig Making</li>
+      <li><span>🔧</span> Fixing</li>
+      <li><span>👰‍♀️</span> Bridal Hair</li>
+      <li><span>🌀</span> Braids</li>
+    </ul>
+  </div>
+  <div class="gallery">
+    <img src="image1.png" class="active" alt="Style 1">
+    <img src="image2.png" alt="Style 2">
+    <img src="image3.png" alt="Style 3">
+    <img src="image4.png" alt="Style 4">
+    <img src="image5.png" alt="Style 5">
+    <img src="image6.png" alt="Style 6">
+    <img src="image7.png" alt="Style 7">
+    <img src="image8.png" alt="Style 8">
+    <img src="image9.png" alt="Style 9">
+    <img src="image10.png" alt="Style 10">
+    <div class="gallery-controls">
+      <button onclick="prevImage()">Prev</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact fade-in">
+  <div class="phone">📞 09166516147</div>
+  <div class="icons">
+    <a href="https://wa.me/09166516147" target="_blank">
+      <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M16.004 4.267c-6.493 0-11.764 5.27-11.765 11.761 0 2.077.545 4.106 1.58 5.893l.183.316-1.12 4.089 4.19-1.099.305.181a11.735 11.735 0 0 0 5.625 1.432h.005c6.493 0 11.765-5.271 11.766-11.762a11.696 11.696 0 0 0-3.445-8.321 11.697 11.697 0 0 0-8.324-3.49zm6.802 16.71c-.283.797-1.405 1.463-2.29 1.661-.612.133-1.41.238-4.099-.88-3.442-1.432-5.668-4.914-5.839-5.139-.163-.225-1.38-1.836-1.38-3.503 0-1.667.87-2.484 1.184-2.823.283-.305.77-.424 1.126-.424.136 0 .26.006.371.011.314.014.471.033.678.526.26.62.884 2.157.961 2.314.078.157.13.34.026.564-.103.231-.154.375-.307.576-.153.201-.322.449-.46.604-.152.171-.312.355-.134.696.178.334.791 1.305 1.698 2.113 1.167 1.04 2.15 1.363 2.459 1.517.283.14.634.117.844-.07.27-.24.582-.628.898-1.01.225-.274.51-.309.762-.215.257.089 1.625.767 1.903.906.283.14.471.208.54.323.07.116.07.667-.213 1.464z" fill="#fff"/></svg>
+    </a>
+    <a href="https://instagram.com/USERNAME" target="_blank">
+      <svg viewBox="0 0 32 32" fill="none"><defs><radialGradient id="ig-grad1" cx="6.827" cy="30.776" r="42.5"><stop offset="0" stop-color="#ffd676"/><stop offset=".25" stop-color="#f2a454"/><stop offset=".38" stop-color="#f05c3c"/><stop offset=".7" stop-color="#c22f86"/><stop offset=".96" stop-color="#6666ad"/><stop offset="1" stop-color="#5c6cb2"/></radialGradient><radialGradient id="ig-grad2" cx="14.312" cy="1.346" r="39.5"><stop offset=".09" stop-color="#ffe17d" stop-opacity="0"/><stop offset=".78" stop-color="#ffe17d" stop-opacity=".64"/></radialGradient></defs><rect width="32" height="32" rx="7" fill="url(#ig-grad1)"/><rect width="32" height="32" rx="7" fill="url(#ig-grad2)"/><path d="M16 6.5c-2.598 0-2.924.011-3.945.058-1.017.046-1.712.207-2.319.443-.628.244-1.16.571-1.692 1.103-.532.532-.859 1.064-1.103 1.692-.236.607-.397 1.302-.443 2.319C6.451 13.136 6.44 13.462 6.44 16.06s.011 2.924.058 3.945c.046 1.017.207 1.712.443 2.319.244.628.571 1.16 1.103 1.692.532.532 1.064.859 1.692 1.103.607.236 1.302.397 2.319.443 1.021.046 1.347.058 3.945.058s2.924-.012 3.945-.058c1.017-.046 1.712-.207 2.319-.443.628-.244 1.16-.571 1.692-1.103.532-.532.859-1.064 1.103-1.692.236-.607.397-1.302.443-2.319.046-1.021.058-1.347.058-3.945s-.012-2.924-.058-3.945c-.046-1.017-.207-1.712-.443-2.319-.244-.628-.571-1.16-1.103-1.692-.532-.532-1.064-.859-1.692-1.103-.607-.236-1.302-.397-2.319-.443C18.924 6.511 18.598 6.5 16 6.5zm0 1.713c2.554 0 2.857.01 3.864.056.932.043 1.439.199 1.776.33.447.174.765.381 1.1.716.335.335.542.653.716 1.1.131.337.287.844.33 1.776.046 1.007.056 1.31.056 3.864s-.01 2.857-.056 3.864c-.043.932-.199 1.439-.33 1.776-.174.447-.381.765-.716 1.1-.335.335-.653.542-1.1.716-.337.131-.844.287-1.776.33-1.007.046-1.31.056-3.864.056s-2.857-.01-3.864-.056c-.932-.043-1.439-.199-1.776-.33-.447-.174-.765-.381-1.1-.716-.335-.335-.542-.653-.716-1.1-.131-.337-.287-.844-.33-1.776-.046-1.007-.056-1.31-.056-3.864s.01-2.857.056-3.864c.043-.932.199-1.439.33-1.776.174-.447.381-.765.716-1.1.335-.335.653-.542 1.1-.716.337-.131.844-.287 1.776-.33 1.007-.046 1.31-.056 3.864-.056z" fill="#fff"/><path d="M16 19.733a3.733 3.733 0 1 1 0-7.466 3.733 3.733 0 0 1 0 7.466zm0-9.485a5.752 5.752 0 1 0 0 11.504 5.752 5.752 0 0 0 0-11.504zm7.328 1.174a1.344 1.344 0 1 1-2.688 0 1.344 1.344 0 0 1 2.688 0z" fill="#fff"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="fade-in">&copy; 2025 Mackenny Hairline | All rights reserved</footer>
+
+<!-- Sticky WhatsApp Button -->
+<a href="https://wa.me/09166516147" target="_blank" class="whatsapp-float">
+  <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M16.004 4.267c-6.493 0-11.764 5.27-11.765 11.761 0 2.077.545 4.106 1.58 5.893l.183.316-1.12 4.089 4.19-1.099.305.181a11.735 11.735 0 0 0 5.625 1.432h.005c6.493 0 11.765-5.271 11.766-11.762a11.696 11.696 0 0 0-3.445-8.321 11.697 11.697 0 0 0-8.324-3.49zm6.802 16.71c-.283.797-1.405 1.463-2.29 1.661-.612.133-1.41.238-4.099-.88-3.442-1.432-5.668-4.914-5.839-5.139-.163-.225-1.38-1.836-1.38-3.503 0-1.667.87-2.484 1.184-2.823.283-.305.77-.424 1.126-.424.136 0 .26.006.371.011.314.014.471.033.678.526.26.62.884 2.157.961 2.314.078.157.13.34.026.564-.103.231-.154.375-.307.576-.153.201-.322.449-.46.604-.152.171-.312.355-.134.696.178.334.791 1.305 1.698 2.113 1.167 1.04 2.15 1.363 2.459 1.517.283.14.634.117.844-.07.27-.24.582-.628.898-1.01.225-.274.51-.309.762-.215.257.089 1.625.767 1.903.906.283.14.471.208.54.323.07.116.07.667-.213 1.464z" fill="#fff"/></svg>
+</a>
+
+<script>
+  // Gallery Slider
+  let images = document.querySelectorAll('.gallery img');
+  let current = 0;
+  function showImage(index){ images.forEach(img=>img.classList.remove('active')); images[index].classList.add('active');}
+  function nextImage(){ current=(current+1)%images.length; showImage(current);}
+  function prevImage(){ current=(current-1+images.length)%images.length; showImage(current);}
+  setInterval(nextImage, 3000); // Auto-slide every 3 seconds
+
+  // Scroll fade-in animation
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = {threshold:0.2};
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target);}});
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+</body>
+</html>
