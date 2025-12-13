@@ -38,8 +38,44 @@
   .gallery .reel-link {width:100%;height:500px;border-radius:15px;display:none;position:relative;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.3s ease;}
   .gallery .reel-link.active {display:block;}
   .gallery .reel-link img {width:100%;height:100%;object-fit:cover;border-radius:15px;}
-  .gallery .reel-link::after {content:'▶';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-size:4rem;color:#fff;background:rgba(0,0,0,0.6);width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding-left:8px;}
-  .gallery .reel-link:hover::after {background:rgba(255,60,172,0.9);}
+  .gallery .reel-link::before {
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:0;
+    height:0;
+    border-left:30px solid #fff;
+    border-top:20px solid transparent;
+    border-bottom:20px solid transparent;
+    margin-left:5px;
+    z-index:2;
+    transition:0.3s;
+  }
+  .gallery .reel-link::after {
+    content:'';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(5px);
+    border:3px solid rgba(255,255,255,0.8);
+    transition:0.3s;
+  }
+  .gallery .reel-link:hover::after {
+    background:rgba(255,60,172,0.85);
+    border-color:#fff;
+    transform:translate(-50%, -50%) scale(1.1);
+  }
+  .gallery .reel-link:hover::before {
+    border-left-color:#fff;
+    transform:translate(-50%, -50%) scale(1.1);
+  }
   .gallery-controls {margin-top:10px;text-align:center;}
   .gallery-controls button {padding:10px 20px;margin:0 5px;background:#FF3CAC;color:#fff;border-radius:8px;transition:0.3s;font-size:1rem;}
   .gallery-controls button:active {background:#FF2D95;transform:scale(0.95);}
@@ -128,13 +164,13 @@
   </div>
   <div class="gallery">
     <!-- Replace with your actual Instagram reel URLs and thumbnail images -->
-    <a href="https://www.instagram.com/reel/DJfDXCxMAyt/?igsh=bGg2cHNvZG11OXd2/" target="_blank" class="reel-link active">
+    <a href="https://www.instagram.com/reel/YOUR_REEL_ID_1/" target="_blank" class="reel-link active">
       <img src="reel-thumbnail-1.png" alt="Hair Style 1">
     </a>
-    <a href="https://www.instagram.com/reel/DRjO6Mqjcs4/?igsh=MXgxdHRtY3J0NHdnNQ==/" target="_blank" class="reel-link">
+    <a href="https://www.instagram.com/reel/YOUR_REEL_ID_2/" target="_blank" class="reel-link">
       <img src="reel-thumbnail-2.png" alt="Hair Style 2">
     </a>
-    <a href="https://www.instagram.com/reel/DJfDi9DsZ9-/?igsh=bTU5cDR2MGMyZ3Vk/" target="_blank" class="reel-link">
+    <a href="https://www.instagram.com/reel/YOUR_REEL_ID_3/" target="_blank" class="reel-link">
       <img src="reel-thumbnail-3.png" alt="Hair Style 3">
     </a>
     <div class="gallery-controls">
