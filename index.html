@@ -35,8 +35,11 @@
   .services ul li {font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;transition:0.3s;}
   .services ul li span {color:#FF3CAC;}
   .gallery {flex:1;min-width:250px;position:relative;border-radius:15px;overflow:hidden;max-width:400px;}
-  .gallery img {width:100%;height:400px;object-fit:cover;border-radius:15px;display:none;transition: transform 0.3s ease;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-  .gallery img.active {display:block;}
+  .gallery .reel-link {width:100%;height:500px;border-radius:15px;display:none;position:relative;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.3s ease;}
+  .gallery .reel-link.active {display:block;}
+  .gallery .reel-link img {width:100%;height:100%;object-fit:cover;border-radius:15px;}
+  .gallery .reel-link::after {content:'▶';position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-size:4rem;color:#fff;background:rgba(0,0,0,0.6);width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding-left:8px;}
+  .gallery .reel-link:hover::after {background:rgba(255,60,172,0.9);}
   .gallery-controls {margin-top:10px;text-align:center;}
   .gallery-controls button {padding:10px 20px;margin:0 5px;background:#FF3CAC;color:#fff;border-radius:8px;transition:0.3s;font-size:1rem;}
   .gallery-controls button:active {background:#FF2D95;transform:scale(0.95);}
@@ -68,7 +71,7 @@
   /* Desktop hover effects */
   @media (hover: hover) {
     .services ul li:hover {transform:scale(1.05);}
-    .gallery img:hover {transform: scale(1.05);}
+    .gallery .reel-link:hover {transform: scale(1.02);}
     .hero .cta-btn:hover {transform: scale(1.05); box-shadow: 0 0 15px rgba(255,60,172,0.6);}
     .gallery-controls button:hover {background:#FF2D95;}
     .contact .icons a:hover {transform:scale(1.2);}
@@ -84,7 +87,7 @@
     .services h2 {font-size:1.6rem;}
     .services ul li {font-size:1rem;}
     .gallery {max-width:100%;}
-    .gallery img {height:300px;}
+    .gallery .reel-link {height:400px;}
     .gallery-controls button {padding:8px 16px;font-size:0.9rem;}
     .contact{flex-direction:column;gap:20px;padding:30px 15px;}
     .contact .phone {font-size:1.2rem;}
@@ -124,19 +127,19 @@
     </ul>
   </div>
   <div class="gallery">
-    <img src="image1.png" class="active" alt="Style 1">
-    <img src="image2.png" alt="Style 2">
-    <img src="image3.png" alt="Style 3">
-    <img src="image4.png" alt="Style 4">
-    <img src="image5.png" alt="Style 5">
-    <img src="image6.png" alt="Style 6">
-    <img src="image7.png" alt="Style 7">
-    <img src="image8.png" alt="Style 8">
-    <img src="image9.png" alt="Style 9">
-    <img src="image10.png" alt="Style 10">
+    <!-- Replace with your actual Instagram reel URLs and thumbnail images -->
+    <a href="https://www.instagram.com/reel/DJfDXCxMAyt/?igsh=bGg2cHNvZG11OXd2/" target="_blank" class="reel-link active">
+      <img src="reel-thumbnail-1.png" alt="Hair Style 1">
+    </a>
+    <a href="https://www.instagram.com/reel/DRjO6Mqjcs4/?igsh=MXgxdHRtY3J0NHdnNQ==/" target="_blank" class="reel-link">
+      <img src="reel-thumbnail-2.png" alt="Hair Style 2">
+    </a>
+    <a href="https://www.instagram.com/reel/DJfDi9DsZ9-/?igsh=bTU5cDR2MGMyZ3Vk/" target="_blank" class="reel-link">
+      <img src="reel-thumbnail-3.png" alt="Hair Style 3">
+    </a>
     <div class="gallery-controls">
-      <button onclick="prevImage()">Prev</button>
-      <button onclick="nextImage()">Next</button>
+      <button onclick="prevReel()">Prev</button>
+      <button onclick="nextReel()">Next</button>
     </div>
   </div>
 </section>
@@ -163,19 +166,34 @@
 </a>
 
 <script>
-  // Gallery Slider
-  let images = document.querySelectorAll('.gallery img');
+  // Gallery Slider for Instagram Reels
+  let reels = document.querySelectorAll('.gallery .reel-link');
   let current = 0;
-  function showImage(index){ images.forEach(img=>img.classList.remove('active')); images[index].classList.add('active');}
-  function nextImage(){ current=(current+1)%images.length; showImage(current);}
-  function prevImage(){ current=(current-1+images.length)%images.length; showImage(current);}
-  setInterval(nextImage, 3000); // Auto-slide every 3 seconds
+  function showReel(index){ 
+    reels.forEach(reel => reel.classList.remove('active')); 
+    reels[index].classList.add('active');
+  }
+  function nextReel(){ 
+    current = (current + 1) % reels.length; 
+    showReel(current);
+  }
+  function prevReel(){ 
+    current = (current - 1 + reels.length) % reels.length; 
+    showReel(current);
+  }
+  // Auto-slide every 5 seconds
+  setInterval(nextReel, 5000);
 
   // Scroll fade-in animation
   const faders = document.querySelectorAll('.fade-in');
   const appearOptions = {threshold:0.2};
   const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target);}});
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
