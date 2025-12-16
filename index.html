@@ -3,235 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mackenny Hairline</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Mackenny Hairline - Premium Hair Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
-  body {background:#fff;color:#000;scroll-behavior:smooth;}
-  a {text-decoration:none;color:inherit;}
-  button {cursor:pointer;border:none;outline:none;}
-  .fade-in {opacity:0;transform:translateY(20px);transition:0.8s;}
-  .fade-in.show {opacity:1;transform:translateY(0);}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#FAFAFA;color:#2D3748;font-family:'Inter',sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.fade-in{opacity:0;transform:translateY(20px);transition:.8s}
+.fade-in.show{opacity:1;transform:translateY(0)}
 
-  /* Header / Logo */
-  .logo-container {padding:20px;text-align:center;background:#F5F5F5;}
-  .logo-container img {height:70px;}
+/* Logo Section */
+.logo-container{text-align:center;padding:15px;background:#FFFFFF;border-bottom:1px solid #E2E8F0}
+.logo-container .logo-text{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#2D3748;letter-spacing:1px}
+.logo-subtext{font-size:0.7rem;letter-spacing:3px;color:#718096;font-weight:400;margin-top:2px}
 
-  /* Hero Section */
-  .hero {min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg, #9B51E0, #BB6BD9);color:#fff;text-align:center;padding:40px 20px;position:relative;overflow:hidden;}
-  .hero::after {content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0));animation: shimmer 4s infinite linear;}
-  @keyframes shimmer {0%{background-position:-100% 0;}100%{background-position:100% 0;}}
-  .hero h1 {font-size:2.8rem;margin-bottom:20px;z-index:1;position:relative;line-height:1.2;}
-  .hero p {font-size:1.2rem;margin-bottom:30px;z-index:1;position:relative;}
-  .hero .cta-btn {background: linear-gradient(135deg, #FF3CAC, #FF2D95);color:#fff;padding:15px 35px;font-size:1rem;border-radius:30px;transition:0.4s;z-index:1;position:relative;display:inline-block;}
-  .hero .cta-btn:active {transform: scale(0.95);}
+/* Hero Section */
+.hero{min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,rgba(139,92,246,0.9),rgba(236,72,153,0.9)),url('hero-bg.jpg');background-size:cover;background-position:center;color:#FFFFFF;text-align:center;padding:60px 20px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.25);z-index:0}
+.hero *{position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;line-height:1.15;margin-bottom:16px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,0.2)}
+.hero p{font-size:1.1rem;margin-bottom:24px;max-width:580px;font-weight:400;opacity:0.95}
+.hero .cta-btn{background:linear-gradient(135deg,#EC4899,#8B5CF6);padding:16px 40px;border-radius:50px;color:#FFF;font-size:1rem;font-weight:600;display:inline-block;transition:all 0.3s;box-shadow:0 4px 15px rgba(236,72,153,0.3)}
+.hero .cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(236,72,153,0.4)}
 
-  /* Services + Gallery */
-  .services-gallery {display:flex;flex-wrap:wrap;padding:50px 20px;justify-content:center;gap:50px;background:#F5F5F5;}
-  .services {flex:1;min-width:250px;}
-  .services h2 {font-size:2rem;margin-bottom:20px;background: linear-gradient(90deg,#FF3CAC,#FF2D95);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
-  .services ul {list-style:none;}
-  .services ul li {font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;transition:0.3s;}
-  .services ul li span {color:#FF3CAC;}
-  .gallery {flex:1;min-width:250px;position:relative;border-radius:15px;overflow:hidden;max-width:400px;}
-  .gallery .reel-link {width:100%;height:500px;border-radius:15px;display:none;position:relative;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.3s ease;}
-  .gallery .reel-link.active {display:block;}
-  .gallery .reel-link img {width:100%;height:100%;object-fit:cover;border-radius:15px;}
-  .gallery .reel-link::before {
-    content:'';
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:0;
-    height:0;
-    border-left:30px solid #fff;
-    border-top:20px solid transparent;
-    border-bottom:20px solid transparent;
-    margin-left:5px;
-    z-index:2;
-    transition:0.3s;
-  }
-  .gallery .reel-link::after {
-    content:'';
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(5px);
-    border:3px solid rgba(255,255,255,0.8);
-    transition:0.3s;
-  }
-  .gallery .reel-link:hover::after {
-    background:rgba(255,60,172,0.85);
-    border-color:#fff;
-    transform:translate(-50%, -50%) scale(1.1);
-  }
-  .gallery .reel-link:hover::before {
-    border-left-color:#fff;
-    transform:translate(-50%, -50%) scale(1.1);
-  }
-  .gallery-controls {margin-top:10px;text-align:center;}
-  .gallery-controls button {padding:10px 20px;margin:0 5px;background:#FF3CAC;color:#fff;border-radius:8px;transition:0.3s;font-size:1rem;}
-  .gallery-controls button:active {background:#FF2D95;transform:scale(0.95);}
+/* Services + Gallery Section */
+.services-gallery{display:flex;flex-wrap:wrap;gap:40px;padding:50px 20px;background:#FFFFFF;justify-content:center;border-bottom:1px solid #E2E8F0}
+.services{flex:1;min-width:280px;max-width:500px}
+.services h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:24px;color:#2D3748;font-weight:600}
+.services ul{list-style:none}
+.services li{font-size:0.95rem;margin-bottom:12px;display:flex;align-items:center;gap:12px;color:#4A5568;font-weight:400}
+.services li .icon{width:32px;height:32px;min-width:32px;background:linear-gradient(135deg,#EC4899,#8B5CF6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(236,72,153,0.25)}
 
-  /* Contact Section */
-  .contact {display:flex;justify-content:space-between;align-items:center;padding:50px 20px;background:#fff;flex-wrap:wrap;}
-  .contact .phone {font-size:1.5rem; color:#FF3CAC; margin-bottom:10px;}
-  .contact .icons a {
-    margin-left:15px;display:inline-flex;justify-content:center;align-items:center;
-    width:60px;height:60px;border-radius:50%;transition:0.3s;
-  }
-  .contact .icons a svg {width:60px;height:60px;}
-  .contact .icons a:active {transform:scale(1.1);}
+/* Gallery */
+.gallery{flex:1;max-width:420px;position:relative}
+.gallery img{width:100%;height:450px;object-fit:cover;border-radius:16px;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+.gallery img.active{display:block}
+.gallery-controls{text-align:center;margin-top:16px;display:flex;justify-content:center;gap:12px}
+.gallery-controls button{background:linear-gradient(135deg,#EC4899,#8B5CF6);color:#FFF;padding:10px 24px;border-radius:25px;border:none;cursor:pointer;transition:all 0.3s;font-weight:500;font-size:0.9rem;box-shadow:0 2px 8px rgba(236,72,153,0.2)}
+.gallery-controls button:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(236,72,153,0.3)}
+.gallery-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.dot{width:8px;height:8px;border-radius:50%;background:#CBD5E0;cursor:pointer;transition:all 0.3s}
+.dot.active{background:#EC4899;width:24px;border-radius:4px}
 
-  /* Footer */
-  footer {text-align:center;padding:20px;background:#F5F5F5;color:#000;font-size:0.9rem;}
+/* Portfolio Section */
+.portfolio{padding:50px 20px;background:#F7FAFC;text-align:center}
+.portfolio h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:12px;color:#2D3748;font-weight:600}
+.portfolio-subtitle{color:#718096;margin-bottom:40px;font-size:1rem}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.portfolio-item{background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.3s;border:1px solid #E2E8F0}
+.portfolio-item:hover{transform:translateY(-8px);box-shadow:0 8px 25px rgba(0,0,0,0.12)}
+.portfolio-item img{width:100%;height:320px;object-fit:cover}
+.portfolio-caption{padding:16px;font-weight:600;color:#EC4899;font-size:0.95rem}
 
-  /* Sticky WhatsApp Button */
-  .whatsapp-float {
-    position:fixed;bottom:25px;right:25px;
-    width:70px;height:70px;border-radius:50%;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    z-index:1000;transition:0.3s;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .whatsapp-float svg {width:70px;height:70px;}
-  .whatsapp-float:active {transform:scale(1.1);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+/* Testimonials Section */
+.testimonials{padding:50px 20px;background:#FFFFFF;text-align:center;border-bottom:1px solid #E2E8F0}
+.testimonials h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:12px;color:#2D3748;font-weight:600}
+.testimonials-subtitle{color:#718096;margin-bottom:40px;font-size:1rem}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.testimonial-card{background:#F7FAFC;padding:28px;border-radius:16px;text-align:left;border:1px solid #E2E8F0;transition:all 0.3s}
+.testimonial-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08);transform:translateY(-4px)}
+.testimonial-header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.testimonial-img-placeholder{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#EC4899,#8B5CF6);display:flex;align-items:center;justify-content:center;color:#FFF;font-size:22px;font-weight:700;box-shadow:0 2px 10px rgba(236,72,153,0.3)}
+.testimonial-info h4{font-size:1rem;margin-bottom:4px;color:#2D3748;font-weight:600}
+.stars{color:#F59E0B;font-size:0.95rem;letter-spacing:1px}
+.testimonial-text{font-style:italic;color:#4A5568;line-height:1.6;margin-bottom:12px;font-size:0.9rem}
+.verified-badge{color:#EC4899;font-size:0.85rem;font-weight:600}
 
-  /* Desktop hover effects */
-  @media (hover: hover) {
-    .services ul li:hover {transform:scale(1.05);}
-    .gallery .reel-link:hover {transform: scale(1.02);}
-    .hero .cta-btn:hover {transform: scale(1.05); box-shadow: 0 0 15px rgba(255,60,172,0.6);}
-    .gallery-controls button:hover {background:#FF2D95;}
-    .contact .icons a:hover {transform:scale(1.2);}
-    .whatsapp-float:hover {transform:scale(1.2);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
-  }
+/* Why Section */
+.why{padding:50px 20px;background:#F7FAFC;text-align:center}
+.why h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:12px;color:#2D3748;font-weight:600}
+.why-subtitle{max-width:700px;margin:0 auto 40px;font-size:1rem;line-height:1.7;color:#4A5568}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.why-card{background:#FFFFFF;padding:28px;border-radius:16px;text-align:left;border:1px solid #E2E8F0;transition:all 0.3s}
+.why-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.08);transform:translateY(-4px)}
+.why-card h3{color:#EC4899;margin-bottom:12px;font-weight:600;font-size:1.1rem}
+.why-card p{color:#4A5568;font-size:0.9rem;line-height:1.6}
 
-  /* Mobile Responsive */
-  @media(max-width:768px){
-    .hero h1 {font-size:1.8rem;}
-    .hero p {font-size:1rem;}
-    .hero .cta-btn {padding:12px 28px;font-size:0.9rem;}
-    .services-gallery{flex-direction:column;align-items:center;padding:30px 15px;}
-    .services h2 {font-size:1.6rem;}
-    .services ul li {font-size:1rem;}
-    .gallery {max-width:100%;}
-    .gallery .reel-link {height:400px;}
-    .gallery-controls button {padding:8px 16px;font-size:0.9rem;}
-    .contact{flex-direction:column;gap:20px;padding:30px 15px;}
-    .contact .phone {font-size:1.2rem;}
-    .contact .icons a {width:50px;height:50px;margin-left:10px;}
-    .contact .icons a svg {width:50px;height:50px;}
-    .whatsapp-float {width:60px;height:60px;bottom:20px;right:20px;}
-    .whatsapp-float svg {width:60px;height:60px;}
-    .logo-container img {height:50px;}
-  }
+/* Contact Section */
+.contact{display:flex;justify-content:space-between;align-items:center;padding:40px 20px;flex-wrap:wrap;gap:24px;background:#FFFFFF;border-bottom:1px solid #E2E8F0}
+.contact .phone{font-size:1.3rem;color:#EC4899;font-weight:600}
+.contact .social-links{display:flex;gap:16px;align-items:center}
+.contact .social-links a{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:#F7FAFC;border-radius:50px;transition:all 0.3s;font-weight:500;font-size:0.9rem;border:1px solid #E2E8F0}
+.contact .social-links a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1);background:#FFFFFF}
+.contact .social-links svg{width:22px;height:22px}
+
+/* Footer */
+footer{text-align:center;padding:24px;background:#F7FAFC;font-size:0.85rem;color:#718096;border-top:1px solid #E2E8F0}
+
+/* WhatsApp Float */
+.whatsapp-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;justify-content:center;align-items:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:all 0.3s;z-index:1000}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(37,211,102,0.5)}
+.whatsapp-float svg{width:32px;height:32px}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+.hero{min-height:50vh;padding:40px 20px}
+.hero h1{font-size:2rem}
+.hero p{font-size:1rem}
+.services-gallery{flex-direction:column;padding:40px 20px}
+.contact{flex-direction:column;text-align:center}
+.contact .social-links{flex-direction:column;width:100%}
+.contact .social-links a{width:100%;justify-content:center}
+.portfolio-grid,.testimonials-grid,.why-grid{grid-template-columns:1fr}
+section{padding:40px 20px}
+.gallery{max-width:100%}
+.gallery img{height:380px}
+}
 </style>
 </head>
 <body>
 
-<!-- Logo -->
 <div class="logo-container fade-in">
-  <img src="logo.png" alt="Mackenny Hairline Logo">
+  <div class="logo-text">MACKENNY</div>
+  <div class="logo-subtext">HAIRLINE</div>
 </div>
 
-<!-- Hero Section -->
 <section class="hero fade-in">
-  <h1>Babes, clock it—time to slay that baddie glow ✨</h1>
-  <p>Glow up, flex, and shine like the queen you are!</p>
-  <a href="https://api.whatsapp.com/send/?phone=2348174449888&text&type=phone_number&app_absent=0&wame_ctl=1&utm_source=ig&fbclid=PAVERFWAOpi4NleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacie1Rysu8ZitjBz690uQcFELEuZJFBj7qVxyQFEMQxlteBh2bHuPajlGJ-Zg_aem_VU0wwX1e1cR7YEixQqUm9Q" target="_blank" class="cta-btn">Slide into WhatsApp</a>
+  <h1>Time to slay that baddie glow ✨</h1>
+  <p>Premium installs, clean revamps, and styles that actually last.</p>
+  <a href="https://wa.me/2348174449888" class="cta-btn">Book via WhatsApp</a>
 </section>
 
-<!-- Services + Gallery -->
 <section class="services-gallery fade-in">
   <div class="services">
-    <h2>Glow Up Menu 💇‍♀️</h2>
+    <h2>Glow-Up Menu</h2>
     <ul>
-      <li><span>✂️</span> Frontal Installation <span style="color:#FFD700;">🔥 Most Baddie</span></li>
-      <li><span>💁‍♀️</span> Wig Revamping & Styling</li>
-      <li><span>🖤</span> Wig Making</li>
-      <li><span>🔧</span> Fixing</li>
-      <li><span>👰‍♀️</span> Bridal Hair</li>
-      <li><span>🌀</span> Braids</li>
+      <li><span class="icon">✂️</span>Frontal Installation — clean melt, flawless finish</li>
+      <li><span class="icon">💁</span>Wig Revamping & Styling — bring old wigs back to life</li>
+      <li><span class="icon">✨</span>Custom Wig Making — tailored to fit your vibe</li>
+      <li><span class="icon">🔧</span>Fixing — secure, neat, and comfortable</li>
+      <li><span class="icon">👰</span>Bridal Hair — soft glam to full luxury looks</li>
+      <li><span class="icon">🌀</span>Braids — neat parts, clean lines</li>
     </ul>
   </div>
+
   <div class="gallery">
-    <!-- Replace with your actual Instagram reel URLs and thumbnail images -->
-    <a href="https://www.instagram.com/reel/DJfDXCxMAyt/?igsh=bGg2cHNvZG11OXd2/" target="_blank" class="reel-link active">
-      <img src="reel-thumbnail-1.png" alt="Hair Style 1">
-    </a>
-    <a href="https://www.instagram.com/reel/DRjO6Mqjcs4/?igsh=MXgxdHRtY3J0NHdnNQ==/" target="_blank" class="reel-link">
-      <img src="reel-thumbnail-2.png" alt="Hair Style 2">
-    </a>
-    <a href="https://www.instagram.com/reel/DJfDi9DsZ9-/?igsh=bTU5cDR2MGMyZ3Vk/" target="_blank" class="reel-link">
-      <img src="reel-thumbnail-3.png" alt="Hair Style 3">
-    </a>
+    <img src="https://via.placeholder.com/420x450/EC4899/FFFFFF?text=Your+Work+1" class="active" alt="Style 1">
+    <img src="https://via.placeholder.com/420x450/8B5CF6/FFFFFF?text=Your+Work+2" alt="Style 2">
+    <img src="https://via.placeholder.com/420x450/EC4899/FFFFFF?text=Your+Work+3" alt="Style 3">
+    <img src="https://via.placeholder.com/420x450/8B5CF6/FFFFFF?text=Your+Work+4" alt="Style 4">
+    <img src="https://via.placeholder.com/420x450/EC4899/FFFFFF?text=Your+Work+5" alt="Style 5">
     <div class="gallery-controls">
-      <button onclick="prevReel()">Prev</button>
-      <button onclick="nextReel()">Next</button>
+      <button onclick="prevGallery()">← Prev</button>
+      <button onclick="nextGallery()">Next →</button>
+    </div>
+    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+</section>
+
+<section class="portfolio fade-in">
+  <h2>Our Transformations</h2>
+  <p class="portfolio-subtitle">Real clients, real results</p>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x320/EC4899/FFFFFF?text=Before+%26+After" alt="Transformation 1">
+      <div class="portfolio-caption">Frontal Installation</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x320/8B5CF6/FFFFFF?text=Before+%26+After" alt="Transformation 2">
+      <div class="portfolio-caption">Wig Revamp</div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x320/EC4899/FFFFFF?text=Before+%26+After" alt="Transformation 3">
+      <div class="portfolio-caption">Custom Wig</div>
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
+<section class="testimonials fade-in">
+  <h2>What Our Queens Say</h2>
+  <p class="testimonials-subtitle">Real reviews from real clients</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-img-placeholder">B</div>
+        <div class="testimonial-info">
+          <h4>Blessing O.</h4>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="testimonial-text">"Best frontal installation I've ever had! The melt is seamless and it lasted 6 weeks without lifting. Mackenny is the real deal!"</p>
+      <div class="verified-badge">✓ Verified Customer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-img-placeholder">C</div>
+        <div class="testimonial-info">
+          <h4>Chioma A.</h4>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="testimonial-text">"She revamped my old wig and it looks brand new! The styling is so clean and professional. Will definitely be coming back!"</p>
+      <div class="verified-badge">✓ Verified Customer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-img-placeholder">T</div>
+        <div class="testimonial-info">
+          <h4>Temi L.</h4>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="testimonial-text">"My bridal hair was PERFECT! She understood exactly what I wanted and delivered beyond my expectations. Highly recommend!"</p>
+      <div class="verified-badge">✓ Verified Customer</div>
+    </div>
+  </div>
+</section>
+
+<section class="why fade-in">
+  <h2>Why Mackenny Hairline?</h2>
+  <p class="why-subtitle">We don't just do hair — we build confidence. Every style is done with care, precision, and intention so you leave looking good and feeling even better.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>✨ Quality Always</h3>
+      <p>No rushed jobs. No shortcuts. Just clean work and attention to detail.</p>
+    </div>
+    <div class="why-card">
+      <h3>💬 Client-First</h3>
+      <p>Your look matters. We listen, advise, and deliver exactly what suits you.</p>
+    </div>
+    <div class="why-card">
+      <h3>🔥 Real Results</h3>
+      <p>Real clients, real transformations — what you see is what you get.</p>
+    </div>
+  </div>
+</section>
+
 <section class="contact fade-in">
   <div class="phone">📞 09166516147</div>
-  <div class="icons">
-    <a href="https://api.whatsapp.com/send/?phone=2348174449888&text&type=phone_number&app_absent=0&wame_ctl=1&utm_source=ig&fbclid=PAVERFWAOpi4NleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacie1Rysu8ZitjBz690uQcFELEuZJFBj7qVxyQFEMQxlteBh2bHuPajlGJ-Zg_aem_VU0wwX1e1cR7YEixQqUm9Q" target="_blank">
+  <div class="social-links">
+    <a href="https://wa.me/2348174449888" target="_blank">
       <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M16.004 4.267c-6.493 0-11.764 5.27-11.765 11.761 0 2.077.545 4.106 1.58 5.893l.183.316-1.12 4.089 4.19-1.099.305.181a11.735 11.735 0 0 0 5.625 1.432h.005c6.493 0 11.765-5.271 11.766-11.762a11.696 11.696 0 0 0-3.445-8.321 11.697 11.697 0 0 0-8.324-3.49zm6.802 16.71c-.283.797-1.405 1.463-2.29 1.661-.612.133-1.41.238-4.099-.88-3.442-1.432-5.668-4.914-5.839-5.139-.163-.225-1.38-1.836-1.38-3.503 0-1.667.87-2.484 1.184-2.823.283-.305.77-.424 1.126-.424.136 0 .26.006.371.011.314.014.471.033.678.526.26.62.884 2.157.961 2.314.078.157.13.34.026.564-.103.231-.154.375-.307.576-.153.201-.322.449-.46.604-.152.171-.312.355-.134.696.178.334.791 1.305 1.698 2.113 1.167 1.04 2.15 1.363 2.459 1.517.283.14.634.117.844-.07.27-.24.582-.628.898-1.01.225-.274.51-.309.762-.215.257.089 1.625.767 1.903.906.283.14.471.208.54.323.07.116.07.667-.213 1.464z" fill="#fff"/></svg>
+      WhatsApp
     </a>
-    <a href="https://www.instagram.com/mackennyhairline?igsh=MW5wM3F4M2k5a2s1Zg==" target="_blank">
-      <svg viewBox="0 0 32 32" fill="none"><defs><radialGradient id="ig-grad1" cx="6.827" cy="30.776" r="42.5"><stop offset="0" stop-color="#ffd676"/><stop offset=".25" stop-color="#f2a454"/><stop offset=".38" stop-color="#f05c3c"/><stop offset=".7" stop-color="#c22f86"/><stop offset=".96" stop-color="#6666ad"/><stop offset="1" stop-color="#5c6cb2"/></radialGradient><radialGradient id="ig-grad2" cx="14.312" cy="1.346" r="39.5"><stop offset=".09" stop-color="#ffe17d" stop-opacity="0"/><stop offset=".78" stop-color="#ffe17d" stop-opacity=".64"/></radialGradient></defs><rect width="32" height="32" rx="7" fill="url(#ig-grad1)"/><rect width="32" height="32" rx="7" fill="url(#ig-grad2)"/><path d="M16 6.5c-2.598 0-2.924.011-3.945.058-1.017.046-1.712.207-2.319.443-.628.244-1.16.571-1.692 1.103-.532.532-.859 1.064-1.103 1.692-.236.607-.397 1.302-.443 2.319C6.451 13.136 6.44 13.462 6.44 16.06s.011 2.924.058 3.945c.046 1.017.207 1.712.443 2.319.244.628.571 1.16 1.103 1.692.532.532 1.064.859 1.692 1.103.607.236 1.302.397 2.319.443 1.021.046 1.347.058 3.945.058s2.924-.012 3.945-.058c1.017-.046 1.712-.207 2.319-.443.628-.244 1.16-.571 1.692-1.103.532-.532.859-1.064 1.103-1.692.236-.607.397-1.302.443-2.319.046-1.021.058-1.347.058-3.945s-.012-2.924-.058-3.945c-.046-1.017-.207-1.712-.443-2.319-.244-.628-.571-1.16-1.103-1.692-.532-.532-1.064-.859-1.692-1.103-.607-.236-1.302-.397-2.319-.443C18.924 6.511 18.598 6.5 16 6.5zm0 1.713c2.554 0 2.857.01 3.864.056.932.043 1.439.199 1.776.33.447.174.765.381 1.1.716.335.335.542.653.716 1.1.131.337.287.844.33 1.776.046 1.007.056 1.31.056 3.864s-.01 2.857-.056 3.864c-.043.932-.199 1.439-.33 1.776-.174.447-.381.765-.716 1.1-.335.335-.653.542-1.1.716-.337.131-.844.287-1.776.33-1.007.046-1.31.056-3.864.056s-2.857-.01-3.864-.056c-.932-.043-1.439-.199-1.776-.33-.447-.174-.765-.381-1.1-.716-.335-.335-.542-.653-.716-1.1-.131-.337-.287-.844-.33-1.776-.046-1.007-.056-1.31-.056-3.864s.01-2.857.056-3.864c.043-.932.199-1.439.33-1.776.174-.447.381-.765.716-1.1.335-.335.653-.542 1.1-.716.337-.131.844-.287 1.776-.33 1.007-.046 1.31-.056 3.864-.056z" fill="#fff"/><path d="M16 19.733a3.733 3.733 0 1 1 0-7.466 3.733 3.733 0 0 1 0 7.466zm0-9.485a5.752 5.752 0 1 0 0 11.504 5.752 5.752 0 0 0 0-11.504zm7.328 1.174a1.344 1.344 0 1 1-2.688 0 1.344 1.344 0 0 1 2.688 0z" fill="#fff"/></svg>
+    <a href="https://instagram.com/mackennyhairline" target="_blank">
+      <svg viewBox="0 0 32 32" fill="none"><defs><radialGradient id="ig" cx="6.827" cy="30.776" r="42.5"><stop offset="0" stop-color="#ffd676"/><stop offset=".25" stop-color="#f2a454"/><stop offset=".38" stop-color="#f05c3c"/><stop offset=".7" stop-color="#c22f86"/><stop offset=".96" stop-color="#6666ad"/></radialGradient></defs><rect width="32" height="32" rx="7" fill="url(#ig)"/><path d="M16 6.5c-2.598 0-2.924.011-3.945.058-1.017.046-1.712.207-2.319.443-.628.244-1.16.571-1.692 1.103-.532.532-.859 1.064-1.103 1.692-.236.607-.397 1.302-.443 2.319C6.451 13.136 6.44 13.462 6.44 16.06s.011 2.924.058 3.945c.046 1.017.207 1.712.443 2.319.244.628.571 1.16 1.103 1.692.532.532 1.064.859 1.692 1.103.607.236 1.302.397 2.319.443 1.021.046 1.347.058 3.945.058s2.924-.012 3.945-.058c1.017-.046 1.712-.207 2.319-.443.628-.244 1.16-.571 1.692-1.103.532-.532.859-1.064 1.103-1.692.236-.607.397-1.302.443-2.319.046-1.021.058-1.347.058-3.945s-.012-2.924-.058-3.945c-.046-1.017-.207-1.712-.443-2.319-.244-.628-.571-1.16-1.103-1.692-.532-.532-1.064-.859-1.692-1.103-.607-.236-1.302-.397-2.319-.443C18.924 6.511 18.598 6.5 16 6.5zm0 1.713c2.554 0 2.857.01 3.864.056.932.043 1.439.199 1.776.33.447.174.765.381 1.1.716.335.335.542.653.716 1.1.131.337.287.844.33 1.776.046 1.007.056 1.31.056 3.864s-.01 2.857-.056 3.864c-.043.932-.199 1.439-.33 1.776-.174.447-.381.765-.716 1.1-.335.335-.653.542-1.1.716-.337.131-.844.287-1.776.33-1.007.046-1.31.056-3.864.056s-2.857-.01-3.864-.056c-.932-.043-1.439-.199-1.776-.33-.447-.174-.765-.381-1.1-.716-.335-.335-.542-.653-.716-1.1-.131-.337-.287-.844-.33-1.776-.046-1.007-.056-1.31-.056-3.864s.01-2.857.056-3.864c.043-.932.199-1.439.33-1.776.174-.447.381-.765.716-1.1.335-.335.653-.542 1.1-.716.337-.131.844-.287 1.776-.33 1.007-.046 1.31-.056 3.864-.056z" fill="#fff"/><path d="M16 19.733a3.733 3.733 0 1 1 0-7.466 3.733 3.733 0 0 1 0 7.466zm0-9.485a5.752 5.752 0 1 0 0 11.504 5.752 5.752 0 0 0 0-11.504zm7.328 1.174a1.344 1.344 0 1 1-2.688 0 1.344 1.344 0 0 1 2.688 0z" fill="#fff"/></svg>
+      Instagram
     </a>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="fade-in">&copy; 2025 Mackenny Hairline | All rights reserved</footer>
+<footer class="fade-in">© 2025 Mackenny Hairline. All rights reserved.</footer>
 
-<!-- Sticky WhatsApp Button -->
-<a href="https://api.whatsapp.com/send/?phone=2348174449888&text&type=phone_number&app_absent=0&wame_ctl=1&utm_source=ig&fbclid=PAVERFWAOpi4NleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacie1Rysu8ZitjBz690uQcFELEuZJFBj7qVxyQFEMQxlteBh2bHuPajlGJ-Zg_aem_VU0wwX1e1cR7YEixQqUm9Q" target="_blank" class="whatsapp-float">
-  <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M16.004 4.267c-6.493 0-11.764 5.27-11.765 11.761 0 2.077.545 4.106 1.58 5.893l.183.316-1.12 4.089 4.19-1.099.305.181a11.735 11.735 0 0 0 5.625 1.432h.005c6.493 0 11.765-5.271 11.766-11.762a11.696 11.696 0 0 0-3.445-8.321 11.697 11.697 0 0 0-8.324-3.49zm6.802 16.71c-.283.797-1.405 1.463-2.29 1.661-.612.133-1.41.238-4.099-.88-3.442-1.432-5.668-4.914-5.839-5.139-.163-.225-1.38-1.836-1.38-3.503 0-1.667.87-2.484 1.184-2.823.283-.305.77-.424 1.126-.424.136 0 .26.006.371.011.314.014.471.033.678.526.26.62.884 2.157.961 2.314.078.157.13.34.026.564-.103.231-.154.375-.307.576-.153.201-.322.449-.46.604-.152.171-.312.355-.134.696.178.334.791 1.305 1.698 2.113 1.167 1.04 2.15 1.363 2.459 1.517.283.14.634.117.844-.07.27-.24.582-.628.898-1.01.225-.274.51-.309.762-.215.257.089 1.625.767 1.903.906.283.14.471.208.54.323.07.116.07.667-.213 1.464z" fill="#fff"/></svg>
+<a href="https://wa.me/2348174449888" target="_blank" class="whatsapp-float">
+  <svg viewBox="0 0 32 32" fill="none"><path d="M16.004 4.267c-6.493 0-11.764 5.27-11.765 11.761 0 2.077.545 4.106 1.58 5.893l.183.316-1.12 4.089 4.19-1.099.305.181a11.735 11.735 0 0 0 5.625 1.432h.005c6.493 0 11.765-5.271 11.766-11.762a11.696 11.696 0 0 0-3.445-8.321 11.697 11.697 0 0 0-8.324-3.49zm6.802 16.71c-.283.797-1.405 1.463-2.29 1.661-.612.133-1.41.238-4.099-.88-3.442-1.432-5.668-4.914-5.839-5.139-.163-.225-1.38-1.836-1.38-3.503 0-1.667.87-2.484 1.184-2.823.283-.305.77-.424 1.126-.424.136 0 .26.006.371.011.314.014.471.033.678.526.26.62.884 2.157.961 2.314.078.157.13.34.026.564-.103.231-.154.375-.307.576-.153.201-.322.449-.46.604-.152.171-.312.355-.134.696.178.334.791 1.305 1.698 2.113 1.167 1.04 2.15 1.363 2.459 1.517.283.14.634.117.844-.07.27-.24.582-.628.898-1.01.225-.274.51-.309.762-.215.257.089 1.625.767 1.903.906.283.14.471.208.54.323.07.116.07.667-.213 1.464z" fill="#fff"/></svg>
 </a>
 
 <script>
-  // Gallery Slider for Instagram Reels
-  let reels = document.querySelectorAll('.gallery .reel-link');
-  let current = 0;
-  function showReel(index){ 
-    reels.forEach(reel => reel.classList.remove('active')); 
-    reels[index].classList.add('active');
-  }
-  function nextReel(){ 
-    current = (current + 1) % reels.length; 
-    showReel(current);
-  }
-  function prevReel(){ 
-    current = (current - 1 + reels.length) % reels.length; 
-    showReel(current);
-  }
-  // Auto-slide every 5 seconds
-  setInterval(nextReel, 5000);
-
-  // Scroll fade-in animation
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = {threshold:0.2};
-  const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
+let imgs=document.querySelectorAll('.gallery img'),currentIndex=0;
+function showGallery(n){imgs.forEach(img=>img.classList.remove('active'));imgs[n].classList.add('active');updateDots()}
+function nextGallery(){currentIndex=(currentIndex+1)%imgs.length;showGallery(currentIndex)}
+function prevGallery(){currentIndex=(currentIndex-1+imgs.length)%imgs.length;showGallery(currentIndex)}
+const dotsContainer=document.getElementById('galleryDots');
+imgs.forEach((_,i)=>{const dot=document.createElement('div');dot.className='dot'+(i===0?' active':'');dot.onclick=()=>{currentIndex=i;showGallery(i)};dotsContainer.appendChild(dot)});
+function updateDots(){document.querySelectorAll('.dot').forEach((dot,i)=>{dot.classList.toggle('active',i===currentIndex)})}
+setInterval(nextGallery,4000);
+const faders=document.querySelectorAll('.fade-in');
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('show')}}));
+faders.forEach(f=>obs.observe(f));
 </script>
+
 </body>
 </html>
